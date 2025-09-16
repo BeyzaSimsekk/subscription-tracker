@@ -23,3 +23,15 @@ const userSchema = new mongoose.Schema({
         minLength: 6
     }
 },{timestamps: true}); //created_at, updated_at columns will be added
+
+
+const User = mongoose.model("User", userSchema);
+
+export default User;
+
+// User.create({}) : 
+//{
+//    name: John Doe,
+//    email: johnnyBravo@huhahah.com,
+//    password: ruhi123,
+//}
