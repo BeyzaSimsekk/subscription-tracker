@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { getUser, getUsers } from "../controllers/user.controller.js";
 
 
 const userRouter = Router();
@@ -7,9 +8,9 @@ const userRouter = Router();
 // GET /users -> get all users
 // GET /users/:id -> get users by id // 123 4123 
 
-userRouter.get("/", (req,res)=>res.send({title:"GET all users"}));
+userRouter.get("/", getUsers);
 
-userRouter.get("/:id", (req,res)=>res.send({title:"GET user details"})); //gets details of a singular user
+userRouter.get("/:id", getUser); //gets details of a singular user
 
 userRouter.post("/", (req,res)=>res.send({title:"CREATE new user"}));
 
