@@ -1,9 +1,11 @@
 import jwt from "jsonwebtoken"
-import { JWT_SECRET } from "../config/env";
-import User from "../models/user.model";
+import { JWT_SECRET } from "../config/env.js";
+import User from "../models/user.model.js";
 
 /**PURPOSE/DEFINITON
  * some routes such as user details should be private, so we need to check if the user is authenticated or not. For this, we create a middleware that will check if the user is authenticated or not.
+ * 
+ * AUTHORIZATION MIDDLEWARE can be also used for admin roles to check if the user is admin or not
  *  */  
 
 /**let token AMACI:
@@ -41,3 +43,5 @@ const authorize = async (req, res, next) => {
         res.status(401).json({message: "Unauthorized", error: error.message}) //401: unauthorized
     }
 }
+
+export default authorize;
