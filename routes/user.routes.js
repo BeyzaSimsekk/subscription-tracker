@@ -2,9 +2,6 @@ import { Router } from "express";
 import authorize from "../middlewares/auth.middleware.js";
 import { getUser, getUsers } from "../controllers/user.controller.js";
 
-
-//ARCJET 'TE KALDIK****2.01.01******KULLANICININ SINIRSIZ SAYIDA İSTEK ATMASINI ENGELLEYECEK, VİRÜS VE BENZERİ SALDIRILARA KARŞI GÜVENLİK***
-
 const userRouter = Router();
 
 // DESCRIPTIONS
