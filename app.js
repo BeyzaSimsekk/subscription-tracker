@@ -8,6 +8,7 @@ import userRouter from "./routes/user.routes.js";
 import subscriptionRouter from "./routes/subscription.routes.js";
 import connectToDatabase from "./database/mongodb.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
+import arjectMiddleware from "./middlewares/arcjet.middleware.js";
 
 const app = express(); //after this you can create routes
 
@@ -19,6 +20,7 @@ const app = express(); //after this you can create routes
 app.use(express.json()); //JSON verilerini ayrıştırmak için kullanılır
 app.use(express.urlencoded({extended: false})); //helps when processing the form data
 app.use(cookieParser()); //read cookies from the request + app uses them
+app.use(arjectMiddleware);
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);

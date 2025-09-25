@@ -1,4 +1,4 @@
-import arcjet, {shield, detectBot, tokenBucket} from "arcjet";
+import arcjet, {shield, detectBot, tokenBucket} from "@arcjet/node";
 import { ARCJET_KEY } from "./env.js";
 
 const aj = arcjet({
@@ -30,3 +30,5 @@ const aj = arcjet({
     }),
   ],
 });
+
+export default aj;
