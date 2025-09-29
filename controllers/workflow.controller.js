@@ -4,7 +4,7 @@ import {createRequire} from "module";
 const require = createRequire(import.meta.url);
 const { serve } = require('@upstash/workflow/express') // import wont work thats why we use createRequire
 
-import Subscription from "../models/subscription.model";
+import Subscription from "../models/subscription.model.js";
 
 const REMINDERS = [7,5,2,1];
 
@@ -43,7 +43,7 @@ export const sendReminders = serve(async (context) => {
 // ------------------------------HELPER FUNCTIONS-----------------------------
 
 const fetchSubscription = async (context, subscriptionId) => {
-    return await context.run('get subscription', () => {
+    return await context.run('get subscription', async () => {
         return Subscription.findById(subscriptionId).populate('user','name email');
     })
 }
@@ -56,6 +56,6 @@ const sleepUntilReminder = async (context, label, date) => {
 const triggerReminder = async ( context, label) => {
     return await context.run(label, () => {
         console.log(`Triggering ${label} reminder`);
-        // Send email, SMS, push notification...
+        // Send email, SMS, push notification... BURADA KALDIM NODEMAILER****2.42.57***
     })
 }
