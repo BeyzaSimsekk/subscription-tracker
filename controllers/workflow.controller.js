@@ -56,6 +56,6 @@ const sleepUntilReminder = async (context, label, date) => {
 const triggerReminder = async ( context, label) => {
     return await context.run(label, () => {
         console.log(`Triggering ${label} reminder`);
-        // Send email, SMS, push notification... BURADA KALDIM NODEMAILER****2.42.57***
+        // Send email, SMS, push notification...
     })
 }
