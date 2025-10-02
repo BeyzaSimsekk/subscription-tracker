@@ -35,8 +35,9 @@ app.get('/', (req, res)=>{
     res.send('Welcome to the Subscription Tracker API!');
 });
 
-app.listen(PORT, async()=>{
-    console.log(`Subscription Tracker API is running on http://localhost:${PORT}`);
+const port = process.env.PORT || PORT || 3000;  // Render'ın verdiği PORT'u kullan, yoksa .env'deki PORT
+app.listen(port, async()=>{
+    console.log(`Subscription Tracker API is running on http://localhost:${port}`);
 
     await connectToDatabase();
 });
